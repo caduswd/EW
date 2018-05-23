@@ -41,12 +41,14 @@
 
 <script>
   // Login Google: 
+  var cname;
+  var cemail;
   function onSignIn(googleUser) {
 	var profile = googleUser.getBasicProfile();
 	// console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
 	// console.log('Name: ' + );
-	var cname = document.querySelector('#cname');
-	var cemail = document.querySelector('#cemail');
+	cname = document.querySelector('#cname');
+	cemail = document.querySelector('#cemail');
 	cname.textContent = profile.getName();
 	cemail.textContent = profile.getEmail();
 	// console.log('Image URL: ' + profile.getImageUrl());
@@ -56,6 +58,8 @@
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
+    	cname = "";
+    	cemail = "";
       console.log('User signed out.');
     });
   }
