@@ -26,6 +26,11 @@
 
 <!-- Botão Login do Google -->
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  <div id="content">
+  	<h3>Bem vindo <span id="cname"></span>!</h3>
+  	<label for="" id='cemail'></label>
+  	
+  </div>
   <br />
   <!-- Botão Logout do Google -->
   <a href="#" onclick="signOut();">Logout</a>
@@ -38,10 +43,14 @@
   // Login Google: 
   function onSignIn(googleUser) {
 	var profile = googleUser.getBasicProfile();
-	console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-	console.log('Name: ' + profile.getName());
-	console.log('Image URL: ' + profile.getImageUrl());
-	console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	// console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+	// console.log('Name: ' + );
+	var cname = document.querySelector('#cname');
+	var cemail = document.querySelector('#cemail');
+	cname.textContent = profile.getName();
+	cname.textContent = profile.getEmail();
+	// console.log('Image URL: ' + profile.getImageUrl());
+	//console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
   }
   
   function signOut() {
