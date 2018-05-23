@@ -27,7 +27,7 @@
 <!-- Botão Login do Google -->
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
   <div id="content">
-  	<h3>Bem vindo <span id="cname"></span>!</h3>
+  	<h3 id="cname"></h3>
   	<label for="" id='cemail'></label>
   	
   </div>
@@ -49,8 +49,8 @@
 	// console.log('Name: ' + );
 	cname = document.querySelector('#cname');
 	cemail = document.querySelector('#cemail');
-	cname.textContent = profile.getName();
-	cemail.textContent = profile.getEmail();
+	cname.textContent = `Seja Bem vindo ${profile.getName()}`;
+	cemail.textContent = `email: ${profile.getEmail()}`;
 	// console.log('Image URL: ' + profile.getImageUrl());
 	//console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
   }
